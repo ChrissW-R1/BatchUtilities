@@ -1,4 +1,5 @@
 @echo off
+:start
 
 IF "%1" == "/?" GOTO help
 
