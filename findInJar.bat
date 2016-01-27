@@ -1,14 +1,14 @@
 @echo off
 
-IF "%1" == "/?" GOTO syntaxInfo
+IF "%1" == "/?" GOTO help
 
 ECHO Searching for "%1" in any JAR file located in "%CD%"
 ECHO.
 ECHO Found it in...
-FOR /R %%J in (*.jar) do @jar -tvf "%%J" | find "%1" > NUL && ECHO %%J
+FOR /R %%J in (*.jar) do @jar -tvf "%%J" | FIND "%1" > NUL && ECHO %%J
 GOTO end
 
-:syntaxInfo
+:help
 ECHO This script searches for (part of) a filename in all JARs
 ECHO.
 ECHO Syntax: findInJar s
